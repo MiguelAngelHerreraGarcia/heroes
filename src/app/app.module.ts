@@ -2,10 +2,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { EstructuraModule } from './estructura/estructura.module';
+
 //Componentes
 import { AppComponent } from './app.component';
-import { PagePrincipalComponent } from './estructura/components/page-principal/page-principal.component';
-import { EstructuraModule } from './estructura/estructura.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { EstructuraModule } from './estructura/estructura.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EstructuraModule,
+    EstructuraModule
   ],
   providers: [],
   bootstrap: [AppComponent]

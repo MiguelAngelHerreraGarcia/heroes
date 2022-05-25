@@ -1,9 +1,10 @@
 <main>
-  <section class="container">
+  <section class="container-fluid">
     <!-- 1 fila, 3 columnas -->
     <div class="row">
       <!-- columna izquierda -->
       <div class="col"></div>
+
       <!-- columna central -->
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
         <!-- Tarjeta -->
@@ -12,11 +13,23 @@
           <div class="card-body">
             <h5 class="card-title">Lista de héroes</h5>
             <div class="card-text">
-              <p>Aquí mostraremos el contenido de la lista de héroes</p>
+              <div *ngIf="lista.length === 0" class="alert alert-warning">
+                <span>No hay elementos que mostrar</span>
+              </div>
+              <ul class="list-group" *ngIf="lista.length">
+                <li class="list-group-item list-group-item-action" *ngFor="let heroe of lista">
+                  {{heroe.nombre}} 
+                  <span class="badge bg-info me-1">{{heroe.poder}}</span>
+                  <span class="badge" [class]="{ 'bg-success' : heroe.vida >0,'bg-danger' : heroe.vida <= 0 }" >
+                      {{heroe.vida}}
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+
       <!-- columna derecha -->
       <div class="col"></div>
     </div>
