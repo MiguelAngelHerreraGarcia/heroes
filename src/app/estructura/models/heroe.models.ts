@@ -1,0 +1,22 @@
+export class Heroe {
+
+  //Constructor sintaxis azucarada (se le pone el public, private, etc)
+  constructor(
+    public nombre: string,
+    public  poder: number,
+    public  honor: number,
+    public  ataque: number,
+    public  defensa: number,
+    public  vida: number,
+    public  imagen: string
+  ){
+  }
+  
+  public esPoderoso():boolean {
+    return this.poder > 200;
+}
+
+public esVillano():boolean {
+    return this.honor < -50;
+}
+}

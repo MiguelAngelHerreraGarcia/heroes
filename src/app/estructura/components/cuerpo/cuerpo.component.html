@@ -3,31 +3,20 @@
     <!-- 1 fila, 3 columnas -->
     <div class="row">
       <!-- columna izquierda -->
-      <div class="col"></div>
+      <div class="col">
+        <div *ngIf="heroeFavorito" class="sticky-top" id="favorito">
+          <div class="alert alert-warning">
+            <img [src]="heroeFavorito.imagen" width="50rem" alt="">
+            <h4>❤{{ heroeFavorito.nombre }}</h4>
+            <hr>
+            <button (click)="borrarFavorito()" class="btn btn-warning btn-sm" >Borrar</button>
+          </div>
+        </div>
+      </div>
 
       <!-- columna central -->
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-        <!-- Tarjeta -->
-        <div id="tarjeta" class="card shadow">
-          <img class="card-img-top" src="/assets/img/banner.jpg" alt="banner" />
-          <div class="card-body">
-            <h5 class="card-title">Lista de héroes</h5>
-            <div class="card-text">
-              <div *ngIf="lista.length === 0" class="alert alert-warning">
-                <span>No hay elementos que mostrar</span>
-              </div>
-              <ul class="list-group" *ngIf="lista.length">
-                <li class="list-group-item list-group-item-action" *ngFor="let heroe of lista">
-                  {{heroe.nombre}} 
-                  <span class="badge bg-info me-1">{{heroe.poder}}</span>
-                  <span class="badge" [class]="{ 'bg-success' : heroe.vida >0,'bg-danger' : heroe.vida <= 0 }" >
-                      {{heroe.vida}}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <router-outlet ></router-outlet>     
       </div>
 
       <!-- columna derecha -->
